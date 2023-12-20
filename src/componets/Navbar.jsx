@@ -37,7 +37,7 @@ const Navbar = () => {
           <summary>Menu</summary>
           <ul className="p-2">
             <li>
-              <a>All</a>
+              <Link to='/'>All</Link>
             </li>
             <li>
               <a>Salad</a>
