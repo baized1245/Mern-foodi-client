@@ -8,11 +8,11 @@ const Banner = () => {
         {/* Imgae */}
 
         <div className="md:-1/2">
-          <img src="/images/home/banner.png" alt="" />
+          <img src="/public/images/home/banner.png" alt="" />
           <div className="flex flex-col md:flex-row items-center justify-around -mt-14 gap-4">
             <div className="flex bg-white py-2 px-3 rounded-lg items-center gap-3 shadow-md w-64">
               <img
-                src="/images/home/b-food1.png"
+                src="/public/images/home/b-food1.png"
                 alt=""
                 className="rounded-2xl"
               />
@@ -23,27 +23,31 @@ const Banner = () => {
                     type="radio"
                     name="rating-2"
                     className="mask mask-star-2 bg-yellow-500"
+                    readOnly
                   />
                   <input
                     type="radio"
                     name="rating-2"
                     className="mask mask-star-2 bg-yellow-500"
-                    checked
+                    readOnly
                   />
                   <input
                     type="radio"
                     name="rating-2"
                     className="mask mask-star-2 bg-yellow-500"
+                    readOnly
                   />
                   <input
                     type="radio"
                     name="rating-2"
                     className="mask mask-star-2 bg-yellow-500"
+                    readOnly
                   />
                   <input
                     type="radio"
                     name="rating-2"
                     className="mask mask-star-2 bg-yellow-500"
+                    readOnly
                   />
                 </div>
                 <p className="text-red">$18.00</p>
@@ -51,7 +55,7 @@ const Banner = () => {
             </div>
             <div className="sm:flex hidden bg-white py-2 px-3 rounded-lg items-center gap-3 shadow-md w-64">
               <img
-                src="/images/home/b-food1.png"
+                src="/public/images/home/b-food1.png"
                 alt=""
                 className="rounded-2xl"
               />
@@ -67,22 +71,25 @@ const Banner = () => {
                     type="radio"
                     name="rating-2"
                     className="mask mask-star-2 bg-yellow-500"
-                    checked
+                    readOnly
                   />
                   <input
                     type="radio"
                     name="rating-2"
                     className="mask mask-star-2 bg-yellow-500"
+                    readOnly
                   />
                   <input
                     type="radio"
                     name="rating-2"
                     className="mask mask-star-2 bg-yellow-500"
+                    readOnly
                   />
                   <input
                     type="radio"
                     name="rating-2"
                     className="mask mask-star-2 bg-yellow-500"
+                    readOnly
                   />
                 </div>
                 <p className="text-red">$18.00</p>

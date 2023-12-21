@@ -1,7 +1,7 @@
 import React from 'react';
 
 const categoryItems = [
-    {id: 1, title: "main Dish", des: "(86 dishes)", image: "/public/images/home/category/img1.png"},
+    {id: 1, title: "main Dish", des: "(86 dishes)", image: "/images/home/category/img1.png"},
     {id: 2, title: "Break Fast", des: "(12 break fast)", image: "/public/images/home/category/img2.png"},
     {id: 3, title: "Dessert", des: "(48 dessert)", image: "/public/images/home/category/img3.png"},
     {id: 4, title: "Browse All", des: "(255 items)", image: "/public/images/home/category/img4.png"},
