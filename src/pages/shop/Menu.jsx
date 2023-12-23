@@ -6,7 +6,9 @@ const Menu = () => {
     const [menu, setMenu] = useState([]);
     const [filteredItems, setFilteredItems] = useState([]);
     const [selectedCategory, setSelectedCategory] = useState("all");
-    const [sortOption, setSortOption] = useState("default")
+    const [sortOption, setSortOption] = useState("default");
+    const [ currentPage, setCurrentPage ] = useState(1);
+    const [itemtsPerPage] = useState(6);
 
     // loading
     useEffect(() => {
@@ -31,12 +33,14 @@ const Menu = () => {
         const filtered = category === "all" ? menu : menu.filter((item) => item.category === category);
         setFilteredItems(filtered);
         setSelectedCategory(category);
+        setCurrentPage(1);
     };
 
     // show all data function
     const showall = () => {
         setFilteredItems(menu);
         setSelectedCategory("all");
+        setCurrentPage(1);
     };
 
     // sorting based on A-Z, Z-A, Low-High and pricing
@@ -54,10 +58,10 @@ const Menu = () => {
             sortedItems.sort((a, b) => b.name.localeCompare(a.name));
             break;
             case "low-to-high":
-                sortedItems.sort((a, b) => a.price.localeCompare(b.price));
+                sortedItems.sort((a, b) => a.price - b.price);
                 break;
             case "high-to-low":
-                sortedItems.sort((a, b) => b.price.localeCompare(a.price));
+                sortedItems.sort((a, b) => b.price - a.price);
                 break
                 default:
                 // code block
@@ -65,7 +69,14 @@ const Menu = () => {
         }
 
         setFilteredItems(sortedItems);
+        setCurrentPage(1);
     };
+
+    // pagination logic
+    const indexOfLastItem = currentPage * itemtsPerPage;
+    const indexOfFirstItem = indexOfLastItem - itemtsPerPage;
+    const currentItem = filteredItems.slice(indexOfFirstItem, indexOfLastItem);
+    const paginate = (pageNumber) => setCurrentPage(pageNumber);
     
   return (
     <div className="">
@@ -141,11 +152,25 @@ const Menu = () => {
           {/* products card */}
           <div className="grid md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-4">
             {
-                filteredItems.map((item) => (
+                currentItem.map((item) => (
                     <Cards key={item._id} item={item}/>
                 ))
             }
           </div>
+      </div>
+
+      {/* pagination section */}
+      <div className="flex justify-center my-8">
+        {
+          Array.from({length: Math.ceil(filteredItems.length / itemtsPerPage)}).map((_, index) => (
+            <button
+            key={index + 1}
+            onClick={()=> paginate(index + 1)}
+            className={`mx-2 px-3 py-1 rounded-full ${currentPage === index + 1 ? "bg-green text-white" : "bg-gray-200"}`}            >
+              { index + 1 }
+            </button>
+          ))
+        }
       </div>
     </div>
   );
